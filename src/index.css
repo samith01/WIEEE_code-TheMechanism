@@ -1,0 +1,116 @@
+:root {
+  --primary-color: #8c52ff;
+  --light-bg: #f9f7ff;
+  --dark-text: #222;
+}
+
+body {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  background: var(--light-bg);
+  color: var(--dark-text);
+}
+
+/* Navbar */
+.navbar {
+  background: var(--primary-color);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar .logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 1rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Home */
+.hero {
+  text-align: center;
+  padding: 5rem 1.5rem;
+}
+
+.hero h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.highlight {
+  color: var(--primary-color);
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto;
+  line-height: 1.6;
+}
+
+button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background: #713fff;
+}
+
+/* About */
+.about {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 260px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: white;
+  padding: 1rem;
+  margin-top: 3rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+}
