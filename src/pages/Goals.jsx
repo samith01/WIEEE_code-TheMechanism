@@ -1,4 +1,13 @@
+import mongoose from "mongoose"
 import { useState, useEffect } from "react";
+
+// Connect to MongoDB
+mongoose.connect(MONGODB_URI)
+.then(() => {
+    console.log('MongoDB connected')
+}).catch((error)=>{
+    console.log(error)
+});
 
 export default function Goals() {
   const [goals, setGoals] = useState([]);
