@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { GoogleGenAI } from "@google/genai";
+import ReactMarkdown from "react-markdown";
 
 // const ai = new GoogleGenAI({
 //   apiKey: process.env.GEMINI_API_KEY,
@@ -56,9 +57,13 @@ export default function Goals() {
     setPlan("");
 
     try {
+      // pass the goals and progress to the AI model to generate a plan
       const response = await ai.models.generateContent({
         model: "gemini-2.0-flash",
-        contents: "Generate me a plan to reach this goal",
+        contents: `Generate a personalized plan based on the following goals and starting progress:\n\n${goals
+          .map((g, i) => `${i + 1}. Goal: ${g.text}, Starting Progress: ${g.progress || "None"}`)
+          .join("\n")}\n\nProvide a step-by-step plan to achieve these goals. Format the plan in markdown with headings and bullet points. 
+          Keep the plan minimal and concise.`,
     });
       setPlan(response.candidates[0].content.parts[0].text);
     } catch (err) {
@@ -229,7 +234,7 @@ export default function Goals() {
           }}
         >
           <h3>Your AI-Generated Plan</h3>
-          <p style={{ marginTop: 12 }}>{plan}</p>
+          <p style={{ marginTop: 12 }}><ReactMarkdown>{plan}</ReactMarkdown></p>
         </div>
       )}
     </div>
