@@ -84,6 +84,17 @@ button:hover {
   margin-bottom: 1rem;
 }
 
+/* Goals */
+.goals {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.goals h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
 .card-grid {
   display: flex;
   flex-wrap: wrap;
