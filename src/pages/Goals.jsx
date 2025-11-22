@@ -1,4 +1,12 @@
 import { useState, useEffect } from "react";
+import { GoogleGenAI } from "@google/genai";
+
+// const ai = new GoogleGenAI({
+//   apiKey: process.env.GEMINI_API_KEY,
+// });
+const ai = new GoogleGenAI({
+  apiKey: import.meta.env.VITE_GEMINI_API_KEY,
+});
 
 export default function Goals() {
   const [goals, setGoals] = useState([]);
@@ -50,13 +58,9 @@ export default function Goals() {
     try {
       const response = await ai.models.generateContent({
         model: "gemini-2.0-flash",
-        contents: "Explain how AI works in a few words",
+        contents: "Generate me a plan to reach this goal",
     });
-    console.log(response.text);
-      if (!res.ok) throw new Error("Failed to generate plan");
-
-      const data = await res.json();
-      setPlan(data.plan);
+      setPlan(response.candidates[0].content.parts[0].text);
     } catch (err) {
       console.error(err);
       setError("Could not generate plan — check server logs.");
