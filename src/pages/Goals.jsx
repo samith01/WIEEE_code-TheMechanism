@@ -171,7 +171,7 @@ export default function Goals() {
                 alignItems: "center",
               }}
             >
-              <strong>{goal.text}</strong>
+              <strong style={{color:"black"}}>{goal.text}</strong>
 
               <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                 <span
