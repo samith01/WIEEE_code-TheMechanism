@@ -1,4 +1,3 @@
-import mongoose from "mongoose"
 import { useState, useEffect } from "react";
 import { GoogleGenAI } from "@google/genai";
 import ReactMarkdown from "react-markdown";
@@ -8,14 +7,6 @@ import ReactMarkdown from "react-markdown";
 // });
 const ai = new GoogleGenAI({
   apiKey: import.meta.env.VITE_GEMINI_API_KEY,
-});
-
-// Connect to MongoDB
-mongoose.connect(MONGODB_URI)
-.then(() => {
-    console.log('MongoDB connected')
-}).catch((error)=>{
-    console.log(error)
 });
 
 export default function Goals() {
@@ -30,8 +21,12 @@ export default function Goals() {
   useEffect(() => {
     try {
       const stored = localStorage.getItem("goals");
-      if (stored) setGoals(JSON.parse(stored));
-    } catch {
+      console.log("Stored goals:", stored);
+      if (stored && stored !== "[]") {
+        setGoals(JSON.parse(stored));
+      }
+    } catch (error) {
+      console.error("Error loading goals from localStorage:", error);
       setGoals([]);
     }
   }, []);
@@ -240,9 +235,11 @@ export default function Goals() {
             borderRadius: 8,
             border: "1px solid #ddd",
             whiteSpace: "pre-wrap",
+            textAlign: "left",
           }}
         >
           <h3>Your AI-Generated Plan</h3>
+          
           <p style={{ marginTop: 12 }}><ReactMarkdown>{plan}</ReactMarkdown></p>
         </div>
       )}
