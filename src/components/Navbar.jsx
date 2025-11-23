@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <h1 className="logo">MyGoals</h1>
+      <h1 className="logo">IDKJustPlanIt</h1>
       <div className="nav-links">
         <Link to="/">Home</Link>
         <Link to="/goals">Goals</Link>
