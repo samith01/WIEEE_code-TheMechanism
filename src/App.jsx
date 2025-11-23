@@ -4,7 +4,7 @@ import About from './pages/About'
 import Goals from './pages/goals'
 import Authentication from './pages/Authentication'
 import Navbar from './components/Navbar'
-import Authentication from './pages/Authentication'
+
 
 function App() {
   return (
