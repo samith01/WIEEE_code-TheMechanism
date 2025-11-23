@@ -16,7 +16,6 @@ export default function Authentication() {
       console.log(data.password, password);
      if (data.password === password) {
         alert('Sign-in successful!');
-        window.location.href = '/goals';
      }
       else {
         alert('Invalid credentials. Please try again.');
