@@ -76,6 +76,7 @@ body {
 .hero h2 {
   font-family: "Lucida Console", "Courier New", monospace;
   font-size: 2.5rem;
+  color: #ff0000;
   margin-bottom: 1rem;
 }
 
